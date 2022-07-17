@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: "development",
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   module: {
     rules: [
@@ -58,6 +59,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Ewan McAndrew Dev',
+      template: './src/index.html',
     }),
   ],
 };

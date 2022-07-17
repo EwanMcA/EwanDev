@@ -1,5 +1,25 @@
 {
   "compilerOptions": {
-    "sourceMap": true
-  }
+    "target": "es6",
+    "jsx": "react",
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "paths": { "*": ["node_modules/*"], "/*": ["src/*"] },
+    "moduleResolution": "node",
+    "strict": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "$schema": "https://json.schemastore.org/tsconfig"
 }
