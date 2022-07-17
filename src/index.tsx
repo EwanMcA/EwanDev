@@ -1,15 +1,5 @@
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-  element.innerHTML = 'heyoooo'
-
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = () => console.log("blahhhhhhhhhh");
-
-  element.appendChild(btn);
-
-   return element;
- }
-
- document.body.appendChild(component());
+const root = createRoot(document.getElementById('index'));
+root.render(<h1>Ewan, Dev</h1>);
