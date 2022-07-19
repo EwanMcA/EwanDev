@@ -1,0 +1,22 @@
+body {
+  font-family: monospace;
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
+
+  section {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.landing-main {
+  background-color: #222;
+  box-sizing: border-box;
+  color: white;
+  height: 100%;
+  padding: 2rem 4rem;
+  width: 100%;
+}
