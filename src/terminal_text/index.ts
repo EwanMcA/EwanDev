@@ -1,1 +1,1 @@
-export { default } from './terminal_text'
+export { default } from "./terminal_text";
