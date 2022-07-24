@@ -1,4 +1,10 @@
+@use '../responsive';
+
 .terminal_text {
-  font-size: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
+
+  @include responsive.lg {
+    font-size: 2rem;
+    margin: 2rem 0;
+  }
 }
