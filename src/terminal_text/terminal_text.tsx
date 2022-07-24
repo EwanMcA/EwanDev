@@ -1,25 +1,36 @@
-import React, { VFC, useEffect, useReducer, useState } from "react";
+import React, { VFC, useEffect, useReducer, useState } from 'react';
 
-import styles from "./terminal_text.scss";
+import styles from './terminal_text.scss';
 
 type TerminalTextProps = {
   text: string;
   setFinished: () => void;
   delay?: number;
+  hang?: boolean;
+};
+
+type TerminalTextState = {
+  textIdx: number;
+  started: boolean;
+  end: number;
 };
 
 const reducer = (
-  state: { textIdx: number; started: boolean; end: number },
-  action: { type: string; onFinish?: any }
-) => {
+  state: TerminalTextState,
+  action: { type: string; onFinish?: () => void }
+): TerminalTextState => {
   switch (action.type) {
-    case "tick":
+    case 'end':
+      return { ...state, textIdx: state.end };
+    case 'tick':
       if (state.textIdx < state.end) {
         return state.started ? { ...state, textIdx: state.textIdx + 1 } : state;
       }
-      action.onFinish();
+      if (action.onFinish) {
+        action.onFinish();
+      }
       return state;
-    case "start":
+    case 'start':
       return { ...state, started: true };
     default:
       return state;
@@ -30,6 +41,7 @@ const TerminalText: VFC<TerminalTextProps> = ({
   text,
   setFinished,
   delay = 2000,
+  hang = false,
 }) => {
   const [underscoreHidden, setUnderscoreHidden] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
@@ -40,7 +52,7 @@ const TerminalText: VFC<TerminalTextProps> = ({
 
   useEffect(() => {
     if (!state.started) {
-      setTimeout(() => dispatch({ type: "start" }), delay);
+      setTimeout(() => dispatch({ type: 'start' }), delay);
     }
 
     const underscoreInterval = setInterval(() => {
@@ -49,9 +61,12 @@ const TerminalText: VFC<TerminalTextProps> = ({
 
     const textInterval = setInterval(() => {
       dispatch({
-        type: "tick",
+        type: 'tick',
         onFinish: () => {
-          clearInterval(underscoreInterval);
+          if (!hang) {
+            setUnderscoreHidden(true);
+            clearInterval(underscoreInterval);
+          }
           clearInterval(textInterval);
           setTimeout(() => setFinished(), 100);
         },
@@ -67,7 +82,7 @@ const TerminalText: VFC<TerminalTextProps> = ({
   return (
     <div className={styles.terminal_text}>
       <span>&gt;&gt; {text.substring(0, state.textIdx)}</span>
-      <span style={{ visibility: underscoreHidden ? "hidden" : "visible" }}>
+      <span style={{ visibility: underscoreHidden ? 'hidden' : 'visible' }}>
         _
       </span>
     </div>
