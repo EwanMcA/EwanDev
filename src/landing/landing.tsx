@@ -75,7 +75,7 @@ const Landing: VFC = () => {
   ];
 
   useEffect(() => {
-    const handleClick = () => setStep((s) => s + 1);
+    const handleClick = (): void => setStep((s) => s + 1);
     window.addEventListener('mousedown', handleClick);
 
     return () => {

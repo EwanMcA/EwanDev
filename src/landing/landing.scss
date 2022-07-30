@@ -27,7 +27,7 @@ body {
 }
 
 span.response {
-  display: block
+  display: block;
 }
 
 .response {
@@ -45,7 +45,7 @@ a {
     stroke: var(--color, #333);
   }
   100% {
-    stroke: #AAA;
+    stroke: #aaa;
   }
 }
 
@@ -58,12 +58,13 @@ a {
   background: none;
   border: none;
   min-height: 60px;
+  outline: none;
   width: 100px;
   height: 50px;
   padding: 0;
 
   &:hover {
-    --color: #CCC;
+    --color: #ccc;
   }
 
   @include responsive.lg {
