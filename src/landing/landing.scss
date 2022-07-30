@@ -26,6 +26,10 @@ body {
   }
 }
 
+span.response {
+  display: block
+}
+
 .response {
   @include responsive.lg {
     font-size: 1.5rem;
@@ -36,20 +40,44 @@ a {
   color: #97e;
 }
 
+@keyframes glow {
+  0% {
+    stroke: var(--color, #333);
+  }
+  100% {
+    stroke: #AAA;
+  }
+}
+
+.enter-rect {
+  animation: 2s infinite alternate glow;
+  stroke: #313131;
+}
+
 .enter {
-  max-width: 75px;
+  background: none;
+  border: none;
+  min-height: 60px;
+  width: 100px;
+  height: 50px;
+  padding: 0;
+
+  &:hover {
+    --color: #CCC;
+  }
 
   @include responsive.lg {
-    max-width: 100px;
     margin-left: 2rem;
   }
 }
 
-.last-line {
+.inline {
+  align-items: left;
   display: flex;
   flex-direction: column;
 
   @include responsive.lg {
+    align-items: center;
     flex-direction: row;
   }
 }

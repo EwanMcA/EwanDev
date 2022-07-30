@@ -4,7 +4,8 @@ import styles from './terminal_text.scss';
 
 type TerminalTextProps = {
   text: string;
-  setFinished: () => void;
+  animate: boolean;
+  onAnimationComplete: () => void;
   delay?: number;
   hang?: boolean;
 };
@@ -39,7 +40,8 @@ const reducer = (
 
 const TerminalText: VFC<TerminalTextProps> = ({
   text,
-  setFinished,
+  animate,
+  onAnimationComplete,
   delay = 2000,
   hang = false,
 }) => {
@@ -51,10 +53,6 @@ const TerminalText: VFC<TerminalTextProps> = ({
   });
 
   useEffect(() => {
-    if (!state.started) {
-      setTimeout(() => dispatch({ type: 'start' }), delay);
-    }
-
     const underscoreInterval = setInterval(() => {
       setUnderscoreHidden((uh) => !uh);
     }, 400);
@@ -68,10 +66,18 @@ const TerminalText: VFC<TerminalTextProps> = ({
             clearInterval(underscoreInterval);
           }
           clearInterval(textInterval);
-          setTimeout(() => setFinished(), 100);
+          setTimeout(() => onAnimationComplete(), 100);
         },
       });
     }, 100);
+
+    if (!animate) {
+      clearInterval(underscoreInterval);
+      clearInterval(textInterval);
+      dispatch({ type: 'end' });
+    } else if (!state.started) {
+      setTimeout(() => dispatch({ type: 'start' }), delay);
+    }
 
     return () => {
       clearInterval(underscoreInterval);

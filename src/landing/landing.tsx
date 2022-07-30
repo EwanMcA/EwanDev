@@ -1,36 +1,34 @@
-import React, { useState, VFC } from 'react';
+import React, { useEffect, useState, VFC } from 'react';
 
 import TerminalText from '../terminal_text';
-import Enter from './enter.svg';
+import Enter from './enter';
 import styles from './landing.scss';
 
 const Landing: VFC = () => {
   const [step, setStep] = useState(0);
+  const incStep = (): void => setStep((s) => s + 1);
 
-  return (
-    <main className={styles['landing-main']}>
-      <TerminalText text="whoami" setFinished={(): void => setStep(1)} />
-      {step > 0 && <span className={styles.response}>Ewan McAndrew</span>}
-      {step > 0 && (
-        <TerminalText text="jobs" setFinished={(): void => setStep(2)} />
-      )}
-      {step > 1 && (
+  const COMMANDS = [
+    {
+      text: 'whoami',
+      response: <span className={styles.response}>Ewan McAndrew</span>,
+    },
+    {
+      text: 'jobs',
+      response: (
         <>
           <span className={styles.response}>
-            [1] running &nbsp;&nbsp;- Senior Software Developer
+            [1] running - Senior Software Developer
           </span>
           <span className={styles.response}>
             [2] suspended - Platinum Recording Artist
           </span>
         </>
-      )}
-      {step > 1 && (
-        <TerminalText
-          text="history -E | grep software"
-          setFinished={(): void => setStep(3)}
-        />
-      )}
-      {step > 2 && (
+      ),
+    },
+    {
+      text: 'history -E | grep software',
+      response: (
         <>
           <span className={styles.response}>
             2016-2019 Software Development Engineer -{' '}
@@ -41,21 +39,18 @@ const Landing: VFC = () => {
             <a href="https://www.mintel.com">Mintel</a>
           </span>
         </>
-      )}
-      {step > 2 && (
-        <TerminalText
-          text="head ~/ewan/about.txt"
-          setFinished={(): void => setStep(4)}
-        />
-      )}
-      {step > 3 && (
+      ),
+    },
+    {
+      text: 'head ~/ewan/about.txt',
+      response: (
         <>
           <p className={styles.response}>
             Hailing from Brisbane Australia, I studied physics and computer
-            science at the{' '}
+            science at the&nbsp;
             <a href="https://about.uq.edu.au/">University of Queensland</a>. I
-            went on to begin my career in Brisbane with a mix of web development
-            in Angular and Java, as well as application development in c++.
+            began my career with a mix of web development in Angular and Java,
+            as well as application development in c++.
           </p>
           <p className={styles.response}>
             In 2019 I moved half way around the world to the bustling metropolis
@@ -64,20 +59,54 @@ const Landing: VFC = () => {
             alarming rate.
           </p>
         </>
-      )}
-      <div className={styles['last-line']}>
-        {step > 3 && (
-          <TerminalText
-            text="exec ~/ewan/project_site.sh"
-            setFinished={(): void => setStep(5)}
-            delay={5000}
-            hang
-          />
-        )}
-        {step > 4 && (
-          <img src={Enter} className={styles.enter} alt="Continue" />
-        )}
-      </div>
+      ),
+    },
+    {
+      text: 'exec ~/ewan/project_site.sh',
+      delay: 5000,
+      hang: true,
+      wrap: true,
+      response: (
+        <button className={styles.enter}>
+          <Enter />
+        </button>
+      ),
+    },
+  ];
+
+  useEffect(() => {
+    const handleClick = () => setStep((s) => s + 1);
+    window.addEventListener('mousedown', handleClick);
+
+    return () => {
+      window.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
+
+  return (
+    <main className={styles['landing-main']}>
+      {COMMANDS.map((cmd, ix) => {
+        if (step >= ix) {
+          const commandComponent = (
+            <TerminalText
+              text={cmd.text}
+              animate={step == ix}
+              onAnimationComplete={incStep}
+              hang={cmd.hang}
+              delay={cmd.delay}
+            />
+          );
+          const responseComponent = step > ix ? cmd.response : <></>;
+
+          return (
+            <div className={cmd.wrap ? styles.inline : ''}>
+              {commandComponent}
+              {responseComponent}
+            </div>
+          );
+        }
+        return <></>;
+      })}
     </main>
   );
 };
