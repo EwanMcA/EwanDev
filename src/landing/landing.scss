@@ -11,7 +11,7 @@ body {
   }
 }
 
-.landing-main {
+.landing {
   background-color: #222;
   box-sizing: border-box;
   color: #ddd;
@@ -76,6 +76,10 @@ a {
 .enter-svg {
   height: 50px;
   width: 100px;
+}
+
+.enter-link {
+  width: 100%;
 }
 
 .inline {

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState, VFC } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import TerminalText from '../terminal_text';
 import Enter from './enter';
 import styles from './landing.scss';
@@ -88,9 +90,9 @@ const Landing: VFC = () => {
       wrap: true,
       response: (
         <Response>
-          <button className={styles.enter}>
+          <Link to="/projects" className={styles.enter}>
             <Enter />
-          </button>
+          </Link>
         </Response>
       ),
     },
@@ -106,7 +108,7 @@ const Landing: VFC = () => {
   }, []);
 
   return (
-    <main className={styles['landing-main']}>
+    <main className={styles.landing}>
       {COMMANDS.map((cmd, ix) => {
         if (step >= ix) {
           const commandComponent = (
