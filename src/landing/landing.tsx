@@ -1,8 +1,24 @@
-import React, { useEffect, useState, VFC } from 'react';
+import React, { useEffect, useRef, useState, VFC } from 'react';
 
 import TerminalText from '../terminal_text';
 import Enter from './enter';
 import styles from './landing.scss';
+
+type ResponseProps = {
+  children: JSX.Element | JSX.Element[];
+};
+
+const Response = ({ children }: ResponseProps) => {
+  const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
+
+  useEffect(() => {
+    if (ref && ref.current) {
+      ref.current.scrollIntoView();
+    }
+  }, [ref]);
+
+  return <div ref={ref}>{children}</div>;
+};
 
 const Landing: VFC = () => {
   const [step, setStep] = useState(0);
@@ -11,25 +27,29 @@ const Landing: VFC = () => {
   const COMMANDS = [
     {
       text: 'whoami',
-      response: <span className={styles.response}>Ewan McAndrew</span>,
+      response: (
+        <Response>
+          <span className={styles.response}>Ewan McAndrew</span>
+        </Response>
+      ),
     },
     {
       text: 'jobs',
       response: (
-        <>
+        <Response>
           <span className={styles.response}>
             [1] running - Senior Software Developer
           </span>
           <span className={styles.response}>
             [2] suspended - Platinum Recording Artist
           </span>
-        </>
+        </Response>
       ),
     },
     {
       text: 'history -E | grep software',
       response: (
-        <>
+        <Response>
           <span className={styles.response}>
             2016-2019 Software Development Engineer -{' '}
             <a href="https://www.csgi.com/">CSG International</a>
@@ -38,13 +58,13 @@ const Landing: VFC = () => {
             2019-2022 Software Developer -{' '}
             <a href="https://www.mintel.com">Mintel</a>
           </span>
-        </>
+        </Response>
       ),
     },
     {
       text: 'head ~/ewan/about.txt',
       response: (
-        <>
+        <Response>
           <p className={styles.response}>
             Hailing from Brisbane Australia, I studied physics and computer
             science at the&nbsp;
@@ -58,7 +78,7 @@ const Landing: VFC = () => {
             Development in Docker + Django + React, and gathering hobbies at an
             alarming rate.
           </p>
-        </>
+        </Response>
       ),
     },
     {
@@ -67,9 +87,11 @@ const Landing: VFC = () => {
       hang: true,
       wrap: true,
       response: (
-        <button className={styles.enter}>
-          <Enter />
-        </button>
+        <Response>
+          <button className={styles.enter}>
+            <Enter />
+          </button>
+        </Response>
       ),
     },
   ];

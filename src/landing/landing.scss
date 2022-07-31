@@ -14,7 +14,7 @@ body {
 .landing-main {
   background-color: #222;
   box-sizing: border-box;
-  color: white;
+  color: #ddd;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -37,7 +37,7 @@ span.response {
 }
 
 a {
-  color: #97e;
+  color: #55b;
 }
 
 @keyframes glow {
@@ -57,19 +57,25 @@ a {
 .enter {
   background: none;
   border: none;
+  cursor: pointer;
   min-height: 60px;
   outline: none;
-  width: 100px;
   height: 50px;
+  width: 100px;
   padding: 0;
 
   &:hover {
-    --color: #ccc;
+    --color: #aaa;
   }
 
   @include responsive.lg {
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
+}
+
+.enter-svg {
+  height: 50px;
+  width: 100px;
 }
 
 .inline {

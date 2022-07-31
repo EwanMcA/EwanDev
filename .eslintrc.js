@@ -36,11 +36,8 @@ module.exports = {
     ],
     'no-console': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/no-explicit-any': 'error',
-    // The following is needed so that the linter does not check
-    // this rule for .js files (see overrides below)
-    // see e.g. https://github.com/typescript-eslint/typescript-eslint/issues/964
     '@typescript-eslint/explicit-function-return-type': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/ban-ts-comment': [
@@ -77,14 +74,5 @@ module.exports = {
   globals: {
     BUILD_TARGET: 'readonly',
   },
-  overrides: [
-    {
-      // enable the rule for TypeScript files specifically
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        '@typescript-eslint/explicit-function-return-type': ['error'],
-      },
-    },
-  ],
 };
 

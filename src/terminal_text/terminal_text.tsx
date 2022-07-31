@@ -87,7 +87,8 @@ const TerminalText: VFC<TerminalTextProps> = ({
 
   return (
     <div className={styles.terminal_text}>
-      <span>&gt;&gt; {text.substring(0, state.textIdx)}</span>
+      <span className={styles.prefix}>&gt;&gt; </span>
+      <span>{text.substring(0, state.textIdx)}</span>
       <span style={{ visibility: underscoreHidden ? 'hidden' : 'visible' }}>
         _
       </span>

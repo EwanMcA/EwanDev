@@ -4,7 +4,7 @@ import styles from './landing.scss';
 
 const Enter = (): JSX.Element => (
   <svg
-    className={styles.enter}
+    className={styles['enter-svg']}
     width="680"
     height="400"
     viewBox="0 0 179.91667 105.83333"
