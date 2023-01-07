@@ -1,18 +1,13 @@
 import React from 'react';
 
 import { createRoot } from 'react-dom/client';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Home from './home';
 import About from './about';
+import Home from './home';
 import Projects from './projects';
-import overlay from './overlay.png';
 
-import styles from './index.scss';
+import './index.scss';
 
 const App = () => (
   <Router>
@@ -21,7 +16,6 @@ const App = () => (
       <Route path="/about" element={<About />} />
       <Route path="/projects" element={<Projects />} />
     </Routes>
-    <img src={overlay} className={styles.overlay}/>
   </Router>
 );
 

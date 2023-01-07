@@ -1,9 +1,15 @@
+@use '../responsive';
+
 .projects {
   display: flex;
   flex-direction: column;
-  margin: 15vh 0;
+  margin: 20vh 0;
   max-height: 100%;
   overflow: auto;
+
+  @include responsive.lg {
+    margin: 15vh 0;
+  }
 }
 
 .project {

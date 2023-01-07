@@ -1,3 +1,5 @@
+@use '../responsive';
+
 .header {
   height: 15vh;
   padding: 0 1rem;
@@ -7,12 +9,21 @@
 
 .homepage {
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   display: flex;
-  height: 100vh;
+
+  @include responsive.lg {
+    flex-direction: row;
+  }
 
   img  {
     border-radius: 50px;
+    height: 40vh;
+
+    @include responsive.lg {
+      height: 60vh;
+    }
   }
 }
 

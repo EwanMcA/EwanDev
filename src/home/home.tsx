@@ -1,8 +1,9 @@
 import React, { VFC } from 'react';
-import { Link } from "react-router-dom";
 
-import styles from './home.scss';
+import { Link } from 'react-router-dom';
+
 import profilePic from '../header/profileInk.png';
+import styles from './home.scss';
 
 const Home: VFC = () => (
   <main className={styles.homepage}>

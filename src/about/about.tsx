@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Terminal from '../terminal';
 import Header from '../header';
+import Terminal from '../terminal';
 import styles from './about.scss';
 
 const About: React.VFC = () => (

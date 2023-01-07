@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
-import profileInk from './profileInk.png';
+import { Link } from 'react-router-dom';
+
 import styles from './header.scss';
+import profileInk from './profileInk.png';
 
 const Header = () => (
   <header className={styles.header}>
