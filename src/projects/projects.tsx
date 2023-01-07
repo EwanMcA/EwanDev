@@ -42,7 +42,11 @@ const Projects = () => (
         link="https://github.com/EwanMcA/RoutineR"
         linkText="GitHub"
       />
-      <Project image={placeholder} title="placeholder" />
+      <Project
+        image={placeholder}
+        title="placeholder"
+        description="Beautiful autumnal forest."
+      />
       <Project image={placeholder} title="placeholder" />
       <Project image={placeholder} title="placeholder" />
       <Project image={placeholder} title="placeholder" />

@@ -19,7 +19,11 @@
   justify-content: space-around;
   padding: 2rem;
   position: relative;
-  margin: 10vh;
+  margin: 5vh;
+
+  @include responsive.lg {
+    margin: 10vh;
+  }
 
   .title {
     position: absolute;
@@ -39,8 +43,12 @@
 
   &-image {
     float: right;
-    width: 20%;
+    width: 30%;
     opacity: 0;
+
+    @include responsive.lg {
+      width: 20%;
+    }
   }
 
   &:hover .project-text, &:hover .project-image {
