@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './landing.scss';
+import styles from './terminal.scss';
 
 const Enter = (): JSX.Element => (
   <svg

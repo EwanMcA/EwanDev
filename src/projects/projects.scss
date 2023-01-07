@@ -1,9 +1,82 @@
-
 .projects {
-  background-color: #336;
-  color: white;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  margin: 15vh 0;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.project {
+  align-items: center;
+  border: 1px solid #666;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  position: relative;
+  margin: 10vh;
+
+  .title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover .title {
+    opacity: 0;
+  }
+
+  &-text {
+    opacity: 0;
+    transform: translate(0, -10%);
+  }
+
+  &-image {
+    float: right;
+    width: 20%;
+    opacity: 0;
+  }
+
+  &:hover .project-text, &:hover .project-image {
+    opacity: 1;
+  }
+
+  & * {
+   transition: all 0.5s ease-in;
+  }
+}
+
+.projects::-webkit-scrollbar {
+  display: none;
+}
+
+
+.overlay {
+  align-items: center;
+  background-color: #3333;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  top: 0;
   width: 100%;
+
+  &:hover {
+    background-color: #333B;
+    color: #FFF;
+
+    > span {
+      opacity: 1;
+    }
+  }
+
+  > span {
+    font-size: 2rem;
+    opacity: 0;
+  }
+}
+
+.overlay,
+.overlay * {
+  transition: all 0.5s ease-in;
 }

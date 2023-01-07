@@ -1,0 +1,39 @@
+.header {
+  height: 15vh;
+  padding: 0 1rem;
+  width: 20%;
+
+}
+
+.homepage {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+
+  img  {
+    border-radius: 50px;
+  }
+}
+
+.menu {
+  font-size: 3rem;
+  margin: 0 100px;
+  min-height: 50vh;
+
+  a {
+    border-bottom: 2px solid transparent;
+    color: #333;
+    text-decoration: none;
+    transition: border-color 0.5s ease-in;
+
+    &:hover {
+      border-color: #333;
+    }
+  }
+
+  li {
+    list-style: none;
+    margin: 3rem 0;
+  }
+}

@@ -1,29 +1,31 @@
 @use '../responsive';
 
-body {
-  font-family: monospace;
-  margin: 0;
-
-  section {
-    display: flex;
-    margin: 0;
-    width: 100%;
-  }
-}
-
-.landing {
-  background-color: #222;
+.terminal {
   box-sizing: border-box;
-  color: #ddd;
+  color: black;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  padding: 1rem 2rem;
+  height: 100%;
+  overflow: auto;
+  padding: 0 2rem;
+  scroll-behavior: smooth;
   width: 100%;
 
   @include responsive.lg {
-    padding: 2rem 4rem;
+    padding: 0 4rem;
   }
+}
+
+.terminal::-webkit-scrollbar {
+    width: 1em;
+}
+
+.terminal::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.terminal::-webkit-scrollbar-thumb {
+  background-color: #555;
 }
 
 span.response {
@@ -32,7 +34,7 @@ span.response {
 
 .response {
   @include responsive.lg {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
