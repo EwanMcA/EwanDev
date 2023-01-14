@@ -7,7 +7,7 @@ import styles from './home.scss';
 
 const Home: VFC = () => (
   <main className={styles.homepage}>
-    <img src={profilePic} />
+    <img className={styles.profile} src={profilePic} />
     <nav className={styles.menu}>
       <ul>
         <li>

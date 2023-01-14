@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import About from './about';
+import Header from './header';
 import Home from './home';
 import Projects from './projects';
 
@@ -13,8 +14,24 @@ const App = () => (
   <Router>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/projects" element={<Projects />} />
+      <Route
+        path="about"
+        element={
+          <>
+            <Header />
+            <About />
+          </>
+        }
+      />
+      <Route
+        path="projects"
+        element={
+          <>
+            <Header />
+            <Projects />
+          </>
+        }
+      />
     </Routes>
   </Router>
 );
