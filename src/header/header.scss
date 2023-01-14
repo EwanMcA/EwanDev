@@ -1,18 +1,29 @@
+@use '../responsive';
+
 .header {
   align-items: center;
   display: flex;
-  justify-content: flex-end;
-  padding: 1rem;
+  justify-content: space-evenly;
+  padding-top: 1rem;
   position: absolute;
   right: 0;
   top: 0;
+  width: 100%;
+
+  @include responsive.lg {
+    justify-content: flex-end;
+    padding: 1rem;
+  }
 
   a {
     border-bottom: 2px solid transparent;
     color: #222;
-    padding: 1rem;
     text-decoration: none;
     transition: border-color 0.5s ease-in;
+
+    @include responsive.lg {
+      padding: 1rem;
+    }
 
     &:hover {
       border-color: #222;

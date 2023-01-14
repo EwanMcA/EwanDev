@@ -34,8 +34,8 @@ const Project: VFC<ProjectProps> = ({
       {mobile ? (
         <img className={styles['project-image']} src={images[0]} />
       ) : (
-        images.map((image) => (
-          <img className={styles['project-image']} src={image} />
+        images.map((image, idx) => (
+          <img key={idx} className={styles['project-image']} src={image} />
         ))
       )}
     </div>

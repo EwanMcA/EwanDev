@@ -1,0 +1,20 @@
+.contact {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30vh;
+}
+
+.nav {
+  font-size: 2rem;
+  text-align: center;
+
+  li {
+    list-style: none;
+    margin: 4rem;
+  }
+
+  ul {
+    padding: 0;
+  }
+}

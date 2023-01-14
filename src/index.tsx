@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import About from './about';
+import Contact from './contact';
 import Header from './header';
 import Home from './home';
 import Projects from './projects';
@@ -29,6 +30,15 @@ const App = () => (
           <>
             <Header />
             <Projects />
+          </>
+        }
+      />
+      <Route
+        path="contact"
+        element={
+          <>
+            <Header />
+            <Contact />
           </>
         }
       />

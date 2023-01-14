@@ -53,3 +53,17 @@
     margin: 4rem 0;
   }
 }
+
+.drip {
+  bottom: 0;
+  height: 62vh;
+  position: absolute;
+  width: 80vw;
+  z-index: -1;
+
+  @include responsive.lg {
+    height: 19vh;
+    left: 25vw;
+    width: 20vw;
+  }
+}
