@@ -2,6 +2,7 @@ import React, { VFC } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
 
+import battlesheet from './battlesheet.png';
 import placeholder from './placeholder.jpeg';
 import styles from './projects.scss';
 import routiner from './routiner.jpg';
@@ -14,13 +15,13 @@ type ProjectProps = {
   linkText?: string;
 };
 
-const Project: VFC<ProjectProps> = ({
+const Project = ({
   images,
   title,
   description,
   link = '',
   linkText = '',
-}) => {
+} : ProjectProps) => {
   const mobile = useMediaQuery({ query: '(max-width: 1280px)' });
 
   return (
@@ -45,16 +46,16 @@ const Project: VFC<ProjectProps> = ({
 const Projects = () => (
   <main className={styles.projects}>
     <Project
-      images={[routiner, routiner]}
+      images={[routiner]}
       title="RoutineR"
       description="Android app for keeping track of routines."
       link="https://github.com/EwanMcA/RoutineR"
       linkText="GitHub"
     />
     <Project
-      images={[placeholder]}
-      title="placeholder"
-      description="Beautiful autumnal forest."
+      images={[battlesheet]}
+      title="Battlesheet"
+      description="Web app to support tabletop war games."
     />
     <Project images={[placeholder]} title="placeholder" />
     <Project images={[placeholder]} title="placeholder" />
