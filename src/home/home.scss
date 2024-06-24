@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: center;
   display: flex;
+  min-height: 100vh;
 
   @include responsive.lg {
     flex-direction: row;

@@ -3,24 +3,24 @@
 .projects {
   display: flex;
   flex-direction: column;
-  margin: 20vh 0;
-  max-height: 100%;
-  overflow: auto;
+  margin: 20vh 0 10vh 0;
 
   @include responsive.lg {
-    margin: 20vh 0;
+    margin: 20vh 0 10vh 0;
   }
 }
 
 .project {
   align-items: center;
-  border: 1px solid #666;
+  background: #aaa2;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   padding-left: 10vw;
   position: relative;
   margin: 5vh;
+  transition: all 0.5s ease-in;
 
   .title {
     position: absolute;
@@ -58,11 +58,6 @@
    transition: all 0.5s ease-in;
   }
 }
-
-.projects::-webkit-scrollbar {
-  display: none;
-}
-
 
 .overlay {
   align-items: center;

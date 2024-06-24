@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Terminal from '../terminal';
 import styles from './about.scss';
+import Terminal from '../terminal';
 
 const About: React.VFC = () => (
   <main className={styles.about}>

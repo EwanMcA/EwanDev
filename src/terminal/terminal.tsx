@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState, VFC } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-import TerminalText from '../terminal_text';
 import styles from './terminal.scss';
+import TerminalText from '../terminal_text';
 
 type ResponseProps = {
   children: JSX.Element | JSX.Element[];
@@ -19,7 +19,7 @@ const Response = ({ children }: ResponseProps) => {
   return <div ref={ref}>{children}</div>;
 };
 
-const Terminal: VFC = () => {
+const Terminal = () => {
   const [step, setStep] = useState(0);
   const incStep = (): void => setStep((s) => s + 1);
 
@@ -92,7 +92,7 @@ const Terminal: VFC = () => {
           const responseComponent = step > ix ? cmd.response : <></>;
 
           return (
-            <div>
+            <div key={cmd.text}>
               {commandComponent}
               {responseComponent}
             </div>
