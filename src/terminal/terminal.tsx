@@ -65,13 +65,13 @@ const Terminal = () => {
       response: (
         <Response>
           <p className={styles.response}>
-            I moved to London in 2019 from Brisbane Australia, where
-            I studied physics and computer science at the&nbsp;
+            I moved to London in 2019 from Brisbane Australia, where I studied
+            physics and computer science at the&nbsp;
             <a href="https://about.uq.edu.au/">University of Queensland</a>.
           </p>
           <p className={styles.response}>
-            Here I&apos;ve been pursuing my passion for software
-            development, and gathering hobbies at an alarming rate.
+            Here I&apos;ve been pursuing my passion for software development,
+            and gathering hobbies at an alarming rate.
           </p>
         </Response>
       ),

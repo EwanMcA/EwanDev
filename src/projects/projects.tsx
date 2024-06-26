@@ -3,6 +3,7 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import battlesheet from './battlesheet.png';
+import fluid from './fluid.jpg';
 import placeholder from './placeholder.jpeg';
 import styles from './projects.scss';
 import routiner from './routiner.jpg';
@@ -21,7 +22,7 @@ const Project = ({
   description,
   link = '',
   linkText = '',
-} : ProjectProps) => {
+}: ProjectProps) => {
   const mobile = useMediaQuery({ query: '(max-width: 1280px)' });
 
   return (
@@ -56,8 +57,15 @@ const Projects = () => (
       images={[battlesheet]}
       title="Battlesheet"
       description="Web app to support tabletop war games."
+      link="https://github.com/EwanMcA/BattleSheet"
+      linkText="GitHub"
     />
-    <Project images={[placeholder]} title="placeholder" />
+    <Project
+      images={[fluid]}
+      title="Fluid Simulation"
+      link="https://github.com/EwanMcA/fluid"
+      linkText="Github"
+    />
     <Project images={[placeholder]} title="placeholder" />
     <Project images={[placeholder]} title="placeholder" />
   </main>
