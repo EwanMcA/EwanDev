@@ -22,6 +22,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gsap": "^3.12.7",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
