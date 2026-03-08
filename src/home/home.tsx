@@ -1,8 +1,6 @@
 import React, { useEffect, VFC } from 'react';
 import { gsap } from "gsap";
 
-import { Link } from 'react-router-dom';
-
 import inkGif from '../drip.gif';
 import styles from './home.scss';
 import ProfilePic from '../profileInk';
@@ -18,7 +16,7 @@ const Home: VFC = () => {
   }, []);
 
   return (
-    <main className={styles.homepage}>
+    <main className={styles.homepage} id="home">
       <div className={styles.images}>
         <ProfilePic />
         <img src={inkGif} alt="Ink drip" height={200} width={100} className={["fade-element", styles.drip].join(" ")}/>
@@ -26,13 +24,13 @@ const Home: VFC = () => {
       <nav className={styles.menu}>
         <ul>
           <li>
-            <Link to="about">About</Link>
+            <a href="#about">About</a>
           </li>
           <li>
-            <Link to="projects">Projects</Link>
+            <a href="#projects">Projects</a>
           </li>
           <li>
-            <Link to="contact">Contact</Link>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </nav>

@@ -3,7 +3,7 @@ import React, { VFC } from 'react';
 import styles from './contact.scss';
 
 const Contact: VFC = () => (
-  <main className={styles.contact}>
+  <main className={styles.contact} id="contact">
     <nav className={styles.nav}>
       <ul>
         <li>

@@ -45,7 +45,7 @@ const Project = ({
 };
 
 const Projects = () => (
-  <main className={styles.projects}>
+  <main className={styles.projects} id="projects">
     <Project
       images={[routiner]}
       title="RoutineR"

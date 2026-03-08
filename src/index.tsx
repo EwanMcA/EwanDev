@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import About from './about';
 import Contact from './contact';
@@ -12,38 +11,13 @@ import Projects from './projects';
 import './index.scss';
 
 const App = () => (
-  <Router>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route
-        path="about"
-        element={
-          <>
-            <Header />
-            <About />
-          </>
-        }
-      />
-      <Route
-        path="projects"
-        element={
-          <>
-            <Header />
-            <Projects />
-          </>
-        }
-      />
-      <Route
-        path="contact"
-        element={
-          <>
-            <Header />
-            <Contact />
-          </>
-        }
-      />
-    </Routes>
-  </Router>
+  <>
+    <Header />
+    <Home />
+    <About />
+    <Projects />
+    <Contact />
+  </>
 );
 
 const index = document.getElementById('index');

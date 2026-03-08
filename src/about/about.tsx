@@ -4,7 +4,7 @@ import styles from './about.scss';
 import Terminal from '../terminal';
 
 const About: React.VFC = () => (
-  <main className={styles.about}>
+  <main className={styles.about} id="about">
     <section className={styles['terminal-container']}>
       <Terminal />
     </section>
