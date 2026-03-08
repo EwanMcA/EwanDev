@@ -1,26 +1,67 @@
 import React, { useEffect, FC } from 'react';
 
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import styles from './home.scss';
-import inkGif from '../drip.gif';
 import ProfilePic from '../profileInk';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Home: FC = () => {
   useEffect(() => {
-    gsap.to('.fade-element', {
-      opacity: 0,
-      duration: 5,
-      ease: 'power2.inOut',
-      stagger: 0.01,
+    const ctx = gsap.context(() => {
+      // General fade for elements
+      gsap.fromTo(
+        '.fade-element',
+        {
+          opacity: 1,
+          y: 0,
+        },
+        {
+          opacity: 0,
+          y: 100,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: '#home',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        },
+      );
+
+      // Specific top-to-bottom mask fade for profile illustration
+      gsap.to(`.${styles.profile}`, {
+        webkitMaskPosition: '0% 0%',
+        maskPosition: '0% 0%',
+        scrollTrigger: {
+          trigger: '#home',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+
+      ScrollTrigger.refresh();
     });
+
+    return () => ctx.revert();
   }, []);
+
+  // TODO: add back 
+  //<img
+    //src={inkGif}
+    //alt=""
+    //height={200}
+    //width={100}
+    //className={['fade-element', styles.drip].join(' ')}
+  ///>
 
   return (
     <section className={styles.homepage} id="home">
       <div className={styles.images}>
-        <ProfilePic />
-        <img src={inkGif} alt="" height={200} width={100} className={['fade-element', styles.drip].join(' ')}/>
+        <ProfilePic className={[styles.profile, 'fade-element'].join(' ')} />
       </div>
       <nav className={styles.menu}>
         <ul>

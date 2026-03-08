@@ -1,13 +1,12 @@
 @use '../responsive';
 
 .projects {
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin: 20vh 0 10vh 0;
-
-  @include responsive.lg {
-    margin: 20vh 0 10vh 0;
-  }
+  padding-top: 20vh;
+  margin: 0;
+  min-height: 100vh;
 }
 
 .project {
@@ -78,34 +77,4 @@
       outline: none;
     }
   }
-}
-
-.overlay {
-  align-items: center;
-  background-color: #3333;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  width: 100%;
-
-  &:hover {
-    background-color: #333B;
-    color: #FFF;
-
-    > span {
-      opacity: 1;
-    }
-  }
-
-  > span {
-    font-size: 2rem;
-    opacity: 0;
-  }
-}
-
-.overlay,
-.overlay * {
-  transition: all 0.5s ease-in;
 }

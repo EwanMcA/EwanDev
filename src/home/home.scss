@@ -1,12 +1,5 @@
 @use '../responsive';
 
-.header {
-  height: 15vh;
-  padding: 0 1rem;
-  width: 20%;
-
-}
-
 .homepage {
   align-items: center;
   flex-direction: column;
@@ -19,12 +12,18 @@
   }
 
   .profile  {
-    border-radius: 50px;
     height: 35vh;
 
     @include responsive.md {
-      height: 60vh;
+      height: 50vh;
     }
+
+    -webkit-mask-image: linear-gradient(to bottom, transparent 33.33%, black 66.66%, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 33.33%, black 66.66%, black 100%);
+    -webkit-mask-size: 100% 300%;
+    mask-size: 100% 300%;
+    -webkit-mask-position: 0% 100%;
+    mask-position: 0% 100%;
   }
 }
 
@@ -36,7 +35,9 @@
 }
 
 .menu {
+  display: flex;
   font-size: 2.5rem;
+  justify-content: center;
   margin: 0 1rem;
   min-height: 50vh;
   text-align: center;
@@ -66,9 +67,4 @@
     list-style: none;
     margin: 4rem 0;
   }
-}
-
-.drip {
-  margin-top: -13px;
-  margin-right: -24px;
 }

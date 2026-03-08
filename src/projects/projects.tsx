@@ -37,38 +37,46 @@ const Project = ({
         <img className={styles['project-image']} src={images[0]} alt={title} />
       ) : (
         images.map((image, idx) => (
-          <img key={idx} className={styles['project-image']} src={image} alt={title} />
+          <img
+            key={idx}
+            className={styles['project-image']}
+            src={image}
+            alt={title}
+          />
         ))
       )}
     </div>
   );
 };
 
-const Projects = () => (
-  <section className={styles.projects} id="projects">
-    <Project
-      images={[routiner]}
-      title="RoutineR"
-      description="Android app for keeping track of routines."
-      link="https://github.com/EwanMcA/RoutineR"
-      linkText="GitHub"
-    />
-    <Project
-      images={[battlesheet]}
-      title="Battlesheet"
-      description="Web app to support tabletop gaming."
-      link="https://github.com/EwanMcA/BattleSheet"
-      linkText="GitHub"
-    />
-    <Project
-      images={[fluid]}
-      title="Fluid Simulation"
-      link="https://github.com/EwanMcA/fluid"
-      linkText="Github"
-    />
-    <Project images={[placeholder]} title="placeholder" />
-    <Project images={[placeholder]} title="placeholder" />
-  </section>
-);
+const Projects = () => {
+  return (
+    <section className={styles.projects} id="projects">
+      <div className={styles.inkTop} />
+      <Project
+        images={[routiner]}
+        title="RoutineR"
+        description="Android app for keeping track of routines."
+        link="https://github.com/EwanMcA/RoutineR"
+        linkText="GitHub"
+      />
+      <Project
+        images={[battlesheet]}
+        title="Battlesheet"
+        description="Web app to support tabletop gaming."
+        link="https://github.com/EwanMcA/BattleSheet"
+        linkText="GitHub"
+      />
+      <Project
+        images={[fluid]}
+        title="Fluid Simulation"
+        link="https://github.com/EwanMcA/fluid"
+        linkText="Github"
+      />
+      <Project images={[placeholder]} title="placeholder" />
+      <Project images={[placeholder]} title="placeholder" />
+    </section>
+  );
+};
 
 export default Projects;
