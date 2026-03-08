@@ -13,10 +13,12 @@ import './index.scss';
 const App = () => (
   <>
     <Header />
-    <Home />
-    <About />
-    <Projects />
-    <Contact />
+    <main>
+      <Home />
+      <About />
+      <Projects />
+      <Contact />
+    </main>
   </>
 );
 

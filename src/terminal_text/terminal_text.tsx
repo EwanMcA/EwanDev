@@ -1,4 +1,4 @@
-import React, { VFC, useEffect, useReducer, useState } from 'react';
+import React, { FC, useEffect, useReducer, useState } from 'react';
 
 import styles from './terminal_text.scss';
 
@@ -38,7 +38,7 @@ const reducer = (
   }
 };
 
-const TerminalText: VFC<TerminalTextProps> = ({
+const TerminalText: FC<TerminalTextProps> = ({
   text,
   animate,
   onAnimationComplete,
@@ -83,6 +83,7 @@ const TerminalText: VFC<TerminalTextProps> = ({
       clearInterval(underscoreInterval);
       clearInterval(textInterval);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

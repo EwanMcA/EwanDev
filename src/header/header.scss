@@ -2,7 +2,7 @@
 
 .header {
   align-items: center;
-  display: flex;
+  display: none;
   justify-content: space-evenly;
   padding-top: 1rem;
   position: fixed;
@@ -10,6 +10,10 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+
+  @include responsive.md {
+    display: flex;
+  }
 
   @include responsive.lg {
     justify-content: flex-end;
@@ -26,8 +30,10 @@
       padding: 1rem;
     }
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       border-color: #222;
+      outline: none;
     }
   }
 
@@ -39,5 +45,11 @@
 
   .profile {
     border: none;
+
+    &:focus-visible {
+      outline: 2px solid #222;
+      outline-offset: 4px;
+      border-radius: 50px;
+    }
   }
 }

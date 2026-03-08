@@ -29,15 +29,15 @@ const Project = ({
     <div className={styles.project}>
       <span className={styles.title}>{title}</span>
       <div className={styles['project-text']}>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         <p>{description}</p>
         {link && <a href={link}>{linkText}</a>}
       </div>
       {mobile ? (
-        <img className={styles['project-image']} src={images[0]} />
+        <img className={styles['project-image']} src={images[0]} alt={title} />
       ) : (
         images.map((image, idx) => (
-          <img key={idx} className={styles['project-image']} src={image} />
+          <img key={idx} className={styles['project-image']} src={image} alt={title} />
         ))
       )}
     </div>
@@ -45,7 +45,7 @@ const Project = ({
 };
 
 const Projects = () => (
-  <main className={styles.projects} id="projects">
+  <section className={styles.projects} id="projects">
     <Project
       images={[routiner]}
       title="RoutineR"
@@ -56,7 +56,7 @@ const Projects = () => (
     <Project
       images={[battlesheet]}
       title="Battlesheet"
-      description="Web app to support tabletop war games."
+      description="Web app to support tabletop gaming."
       link="https://github.com/EwanMcA/BattleSheet"
       linkText="GitHub"
     />
@@ -68,7 +68,7 @@ const Projects = () => (
     />
     <Project images={[placeholder]} title="placeholder" />
     <Project images={[placeholder]} title="placeholder" />
-  </main>
+  </section>
 );
 
 export default Projects;

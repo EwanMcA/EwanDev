@@ -1,9 +1,9 @@
-import React, { VFC } from 'react';
+import React, { FC } from 'react';
 
 import styles from './contact.scss';
 
-const Contact: VFC = () => (
-  <main className={styles.contact} id="contact">
+const Contact: FC = () => (
+  <section className={styles.contact} id="contact">
     <nav className={styles.nav}>
       <ul>
         <li>
@@ -19,7 +19,7 @@ const Contact: VFC = () => (
         </li>
       </ul>
     </nav>
-  </main>
+  </section>
 );
 
 export default Contact;

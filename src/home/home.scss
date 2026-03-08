@@ -14,7 +14,7 @@
   display: flex;
   min-height: 100vh;
 
-  @include responsive.lg {
+  @include responsive.md {
     flex-direction: row;
   }
 
@@ -22,7 +22,7 @@
     border-radius: 50px;
     height: 35vh;
 
-    @include responsive.lg {
+    @include responsive.md {
       height: 60vh;
     }
   }
@@ -37,9 +37,13 @@
 
 .menu {
   font-size: 2.5rem;
-  margin: 0 100px;
+  margin: 0 1rem;
   min-height: 50vh;
   text-align: center;
+
+  @include responsive.md {
+    margin: 0 100px;
+  }
 
   a {
     border-bottom: 2px solid transparent;
@@ -47,8 +51,10 @@
     text-decoration: none;
     transition: border-color 0.5s ease-in;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       border-color: #333;
+      outline: none;
     }
   }
 

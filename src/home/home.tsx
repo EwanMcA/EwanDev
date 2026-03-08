@@ -1,25 +1,26 @@
-import React, { useEffect, VFC } from 'react';
-import { gsap } from "gsap";
+import React, { useEffect, FC } from 'react';
 
-import inkGif from '../drip.gif';
+import { gsap } from 'gsap';
+
 import styles from './home.scss';
+import inkGif from '../drip.gif';
 import ProfilePic from '../profileInk';
 
-const Home: VFC = () => {
+const Home: FC = () => {
   useEffect(() => {
-    gsap.to(".fade-element", {
+    gsap.to('.fade-element', {
       opacity: 0,
       duration: 5,
-      ease: "power2.inOut",
+      ease: 'power2.inOut',
       stagger: 0.01,
     });
   }, []);
 
   return (
-    <main className={styles.homepage} id="home">
+    <section className={styles.homepage} id="home">
       <div className={styles.images}>
         <ProfilePic />
-        <img src={inkGif} alt="Ink drip" height={200} width={100} className={["fade-element", styles.drip].join(" ")}/>
+        <img src={inkGif} alt="" height={200} width={100} className={['fade-element', styles.drip].join(' ')}/>
       </div>
       <nav className={styles.menu}>
         <ul>
@@ -34,8 +35,8 @@ const Home: VFC = () => {
           </li>
         </ul>
       </nav>
-    </main>
-  )
+    </section>
+  );
 };
 
 export default Home;

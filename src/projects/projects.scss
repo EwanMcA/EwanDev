@@ -50,12 +50,33 @@
     }
   }
 
-  &:hover .project-text, &:hover .project-image {
+  &:hover .project-text,
+  &:hover .project-image,
+  &:focus-within .project-text,
+  &:focus-within .project-image {
     opacity: 1;
+  }
+
+  &:hover .title,
+  &:focus-within .title {
+    opacity: 0;
   }
 
   & * {
    transition: all 0.5s ease-in;
+  }
+
+  a {
+    border-bottom: 2px solid transparent;
+    color: #333;
+    text-decoration: none;
+    transition: border-color 0.5s ease-in;
+
+    &:hover,
+    &:focus-visible {
+      border-color: #333;
+      outline: none;
+    }
   }
 }
 

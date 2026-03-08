@@ -9,12 +9,28 @@
   font-size: 2rem;
   text-align: center;
 
+  a {
+    border-bottom: 2px solid transparent;
+    color: #333;
+    text-decoration: none;
+    transition: border-color 0.5s ease-in;
+
+    &:hover,
+    &:focus-visible {
+      border-color: #333;
+      outline: none;
+    }
+  }
+
   li {
     list-style: none;
     margin: 4rem;
   }
 
   ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
   }
 }

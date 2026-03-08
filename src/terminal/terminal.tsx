@@ -79,7 +79,7 @@ const Terminal = () => {
   ];
 
   return (
-    <div className={styles.terminal}>
+    <div className={styles.terminal} aria-live="polite" aria-label="Terminal Portfolio">
       {COMMANDS.map((cmd, ix) => {
         if (step >= ix) {
           const commandComponent = (
