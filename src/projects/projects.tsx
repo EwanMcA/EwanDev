@@ -7,6 +7,7 @@ import fluid from './fluid.jpg';
 import placeholder from './placeholder.jpeg';
 import styles from './projects.scss';
 import routiner from './routiner.jpg';
+import this_site from './this_site.png';
 
 type ProjectProps = {
   images: string[];
@@ -68,13 +69,25 @@ const Projects = () => {
         linkText="GitHub"
       />
       <Project
+        images={[this_site]}
+        title="This site"
+        description="My personal site, built with React."
+        link="https://github.com/EwanMcA/EwanDev"
+        linkText="Github"
+      />
+      <Project
+        images={[placeholder]}
+        title="PolitiFlow"
+        link="https://github.com/EwanMcA/Politiflow"
+        linkText="Github"
+      />
+      <Project
         images={[fluid]}
         title="Fluid Simulation"
+        description="Canvas-based fluid simulation."
         link="https://github.com/EwanMcA/fluid"
         linkText="Github"
       />
-      <Project images={[placeholder]} title="placeholder" />
-      <Project images={[placeholder]} title="placeholder" />
     </section>
   );
 };
