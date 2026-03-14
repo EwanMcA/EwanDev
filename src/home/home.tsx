@@ -16,11 +16,9 @@ const Home: FC = () => {
         '.fade-element',
         {
           opacity: 1,
-          y: 0,
         },
         {
           opacity: 0,
-          y: 100,
           immediateRender: false,
           scrollTrigger: {
             trigger: '#home',

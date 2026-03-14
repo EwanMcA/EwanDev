@@ -37,7 +37,7 @@ const Terminal = () => {
       response: (
         <Response>
           <span className={styles.response}>
-            [1] running - Senior Software Developer
+            [1] running - Principal Software Engineer
           </span>
           <span className={styles.response}>
             [2] suspended - Platinum Recording Artist

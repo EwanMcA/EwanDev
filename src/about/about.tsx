@@ -6,9 +6,11 @@ import Terminal from '../terminal';
 const About: React.FC = () => {
   return (
     <section className={styles.about} id="about">
-      <section className={[styles['terminal-container'], styles.screen].join(' ')}>
-        <Terminal />
-      </section>
+      <div className={styles.screen_outer}>
+        <section className={[styles['terminal-container'], styles.screen].join(' ')}>
+          <Terminal />
+        </section>
+      </div>
     </section>
   );
 };
