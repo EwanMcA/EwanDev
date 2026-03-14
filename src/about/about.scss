@@ -43,11 +43,16 @@
 
 .stand {
   clip-path: inset(20px -100px -100px -100px);
+  display: none;
   height: 100px;
   margin-top: -20px;
   position: relative;
   width: 100%;
   z-index: 1;
+
+  @include responsive.lg {
+    display: block;
+  }
 
   &::before,
   &::after {
